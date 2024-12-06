@@ -1,19 +1,99 @@
 .mood-tracker {
+  background: linear-gradient(
+    145deg,
+    #f1f7f6,
+    #d1e7e4
+  ); /* Light gradient background */
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: auto;
+  font-family: "Poppins", sans-serif;
+  color: #333;
   text-align: center;
-  padding: 20px;
+  transition: all 0.3s ease-in-out;
 }
 
-.moods button {
-  margin: 5px;
-  padding: 10px 20px;
-  background-color: #4caf50;
+.mood-tracker h2 {
+  font-size: 2.5rem;
+  color: #4f8a8b;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.moods {
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.mood-btn {
+  background-color: #4f8a8b;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 50px;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  width: 140px;
+  height: 60px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.moods button:hover {
-  background-color: #45a049;
+.mood-btn:hover {
+  background-color: #3b6e6b;
+  transform: translateY(-5px);
+}
+
+.mood-btn:active {
+  transform: translateY(2px);
+}
+
+.mood-btn .icon {
+  margin-right: 10px;
+  font-size: 1.5rem;
+}
+
+.mood-display {
+  margin-top: 2rem;
+}
+
+.mood-display p {
+  font-size: 1.2rem;
+  color: #4f8a8b;
+  margin-bottom: 0.5rem;
+}
+
+.mood-display h3 {
+  font-size: 2rem;
+  color: #4f8a8b;
+  font-weight: 600;
+}
+
+.mood-display h3::before {
+  content: "💬 ";
+}
+
+@media (max-width: 768px) {
+  .mood-tracker {
+    padding: 1.5rem;
+  }
+
+  .mood-btn {
+    font-size: 1rem;
+    padding: 12px 25px;
+    width: 120px;
+    height: 50px;
+  }
+
+  .mood-display h3 {
+    font-size: 1.5rem;
+  }
 }

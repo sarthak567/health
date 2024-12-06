@@ -1,15 +1,15 @@
 import React from "react";
 import MoodTracker from "../components/MoodTracker";
-import Chatbot from "../components/Chatbot";
 import FaceExpressionDetector from "../components/FaceExpressionDetector";
-import Meditation from "../components/Meditation";
+import Meditation from "../components/Meditation"; // Chatbot removed from here
+// Chatbot import removed
+
 const Dashboard = () => {
   return (
     <div className="dashboard">
       <h1>Your Dashboard</h1>
       <MoodTracker />
       <Meditation />
-      <Chatbot />
       <FaceExpressionDetector />
     </div>
   );

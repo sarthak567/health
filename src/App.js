@@ -4,11 +4,12 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
-import Chatbot from "./components/Chatbot";
+import ChatAIBot from "./pages/ChatAI";
 import Meditation from "./components/Meditation"; // Import Meditation Page
+import FirstAid from "./pages/FirstAid"; // Import FirstAid Page
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import "./styles/App.css";
+import "./App.css";
 
 const App = () => {
   return (
@@ -18,11 +19,12 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/chatai" element={<ChatAIBot />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/dashboard" element={<Chatbot />} />
-          <Route path="/meditation" element={<Meditation />} />{" "}
-          {/* Add Meditation Route */}
+          <Route path="/firstaid" element={<FirstAid />} />{" "}
+          {/* Add new route for First Aid */}
+          <Route path="/meditation" element={<Meditation />} />
         </Routes>
         <Footer />
       </div>

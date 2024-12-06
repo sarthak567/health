@@ -1,0 +1,182 @@
+/* Overall page container */
+.first-aid-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: url("firstaiddd07.jpg") no-repeat center center fixed; /* Add your background image URL */
+  background-size: cover;
+  font-family: "Arial", sans-serif;
+  color: #333;
+  min-height: 100vh;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); /* Text shadow for readability */
+}
+
+/* Title of the page */
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #140101;
+  margin-bottom: 20px;
+  text-align: center;
+  animation: fadeIn 1s ease-out;
+  text-transform: uppercase;
+}
+
+/* Description text */
+.description {
+  font-size: 1.4rem;
+  color: #0e0101;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 300;
+  max-width: 600px;
+  line-height: 1.5;
+}
+
+/* Symptom selection section */
+.symptom-selection {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent background */
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(16, 1, 1, 0.1);
+}
+
+h2 {
+  font-size: 1.6rem;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Styling the checkbox container */
+.checkbox-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  margin-top: 20px;
+}
+
+/* Style for each checkbox label */
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  color: #2c3e50;
+}
+
+.checkbox-label:hover {
+  transform: scale(1.05);
+  color: #701313;
+}
+
+/* Checkboxes themselves */
+.checkbox-input {
+  margin-right: 10px;
+  accent-color: #670c0c;
+  transform: scale(1.3);
+  transition: transform 0.3s ease;
+}
+
+.checkbox-input:checked {
+  transform: scale(1.5);
+  border-color: #3498db;
+}
+
+/* Submit button */
+.submit-button {
+  background-color: #e9e21f;
+  color: rgb(14, 1, 1);
+  border: none;
+  padding: 14px 32px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 25px;
+  width: 100%;
+  max-width: 200px;
+}
+
+.submit-button:hover {
+  background-color: #2980b9;
+  transform: scale(1.05);
+}
+
+/* Remedy result section */
+.remedy-results {
+  margin-top: 30px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-out;
+}
+
+.remedy-results h2 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.remedy-text {
+  font-size: 1.1rem;
+  color: #34495e;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Animation for fade-in effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.3rem;
+  }
+
+  .description {
+    font-size: 1.2rem;
+    max-width: 90%;
+  }
+
+  .checkbox-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .checkbox-label {
+    font-size: 1.1rem;
+  }
+
+  .submit-button {
+    font-size: 1.1rem;
+    padding: 12px 30px;
+  }
+
+  .remedy-text {
+    font-size: 1.1rem;
+  }
+}
