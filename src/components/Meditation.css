@@ -146,14 +146,19 @@
   font-size: 1.5rem;
 }
 
-/* Media Query for responsiveness */
+/* Media Query for smaller devices (max-width: 768px) */
 @media (max-width: 768px) {
   .meditation-container {
     padding: 1.5rem;
+    max-width: 100%;
   }
 
   .meditation-header h2 {
     font-size: 2rem;
+  }
+
+  .meditation-header p {
+    font-size: 1rem;
   }
 
   .timer-text {
@@ -163,5 +168,86 @@
   .cta-button {
     font-size: 1rem;
     padding: 8px 16px;
+  }
+
+  .spinner {
+    font-size: 40px;
+  }
+
+  .content h3 {
+    font-size: 1.8rem;
+  }
+
+  .exercise-list li {
+    font-size: 1rem;
+  }
+
+  .timer-text {
+    font-size: 1.5rem;
+  }
+}
+
+/* Media Query for extra small devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .meditation-container {
+    padding: 1rem;
+  }
+
+  .meditation-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .meditation-header p {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+
+  .spinner {
+    font-size: 30px;
+  }
+
+  .content h3 {
+    font-size: 1.5rem;
+  }
+
+  .exercise-list li {
+    font-size: 0.9rem;
+  }
+
+  .timer-text {
+    font-size: 1.2rem;
+  }
+}
+
+/* Media Query for very large screens (min-width: 1200px) */
+@media (min-width: 1200px) {
+  .meditation-container {
+    padding: 3rem;
+    max-width: 800px;
+  }
+
+  .meditation-header h2 {
+    font-size: 3rem;
+  }
+
+  .content h3 {
+    font-size: 2.5rem;
+  }
+
+  .cta-button {
+    font-size: 1.4rem;
+    padding: 12px 24px;
+  }
+
+  .spinner {
+    font-size: 60px;
+  }
+
+  .timer-text {
+    font-size: 2.5rem;
   }
 }
