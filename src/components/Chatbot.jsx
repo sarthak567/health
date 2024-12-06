@@ -16,26 +16,56 @@ const Chatbot = () => {
       setInput("");
 
       try {
-        // Call Gemini API
+        console.log("Sending message to API:", input); // Debugging line
+        // Call Gemini API with the correct structure and endpoint
         const response = await axios.post(
-          "https://api.gemini.com/v1/chat", // Replace with actual Gemini API endpoint
-          { query: input },
+          "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyDt7uk7d8opuHQmf9s-zrQVwiQCZFEa-GU", // Replace with actual API key
+          {
+            contents: [
+              {
+                parts: [
+                  {
+                    text: input,
+                  },
+                ],
+              },
+            ],
+          },
           {
             headers: {
-              Authorization: `Bearer AIzaSyDt7uk7d8opuHQmf9s-zrQVwiQCZFEa-GU`,
+              "Content-Type": "application/json",
             },
           }
         );
 
-        // Append bot's response
+        // Extract the bot's response from the API response structure
+        const botResponse =
+          response.data?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+        console.log("API response:", response); // Debugging line
+
+        // If a valid response exists, append it to the messages array
         setMessages([
           ...newMessages,
           {
-            text: response.data.reply || "No response from API.",
+            text: botResponse || "No response from API.",
             sender: "bot",
           },
         ]);
       } catch (error) {
+        // Add detailed error logging
+        console.error("Error connecting to API:", error);
+        if (error.response) {
+          // If error response exists
+          console.error("API response error:", error.response.data);
+        } else if (error.request) {
+          // If no response was received
+          console.error("No response received:", error.request);
+        } else {
+          // General error
+          console.error("Error message:", error.message);
+        }
+
         setMessages([
           ...newMessages,
           { text: "Error connecting to API. Please try again.", sender: "bot" },
