@@ -1,41 +1,109 @@
 import React, { useState } from "react";
-import "./Chatbot.css";
+import { Box, Button, TextField, Typography, Paper } from "@mui/material";
+import axios from "axios";
 
 const Chatbot = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     if (input.trim()) {
-      setMessages([
-        ...messages,
-        { text: input, sender: "user" },
-        { text: "Thank you for sharing!", sender: "bot" },
-      ]);
+      // Append user's message
+      const newMessages = [...messages, { text: input, sender: "user" }];
+      setMessages(newMessages);
+
+      // Clear input
       setInput("");
+
+      try {
+        // Call Gemini API
+        const response = await axios.post(
+          "https://api.gemini.com/v1/chat", // Replace with actual Gemini API endpoint
+          { query: input },
+          {
+            headers: {
+              Authorization: `Bearer AIzaSyDt7uk7d8opuHQmf9s-zrQVwiQCZFEa-GU`,
+            },
+          }
+        );
+
+        // Append bot's response
+        setMessages([
+          ...newMessages,
+          {
+            text: response.data.reply || "No response from API.",
+            sender: "bot",
+          },
+        ]);
+      } catch (error) {
+        setMessages([
+          ...newMessages,
+          { text: "Error connecting to API. Please try again.", sender: "bot" },
+        ]);
+      }
     }
   };
 
   return (
-    <div className="chatbot">
-      <h2>Chat with Us</h2>
-      <div className="chat-window">
+    <Paper
+      elevation={3}
+      sx={{
+        maxWidth: "400px",
+        margin: "auto",
+        mt: 5,
+        p: 2,
+        bgcolor: "#f5f5f5",
+        borderRadius: "10px",
+      }}
+    >
+      <Typography variant="h5" sx={{ textAlign: "center", mb: 2 }}>
+        Chat with Us
+      </Typography>
+      <Box
+        sx={{
+          maxHeight: "300px",
+          overflowY: "auto",
+          p: 1,
+          border: "1px solid #ddd",
+          borderRadius: "8px",
+          mb: 2,
+          bgcolor: "white",
+        }}
+      >
         {messages.map((message, index) => (
-          <div key={index} className={`message ${message.sender}`}>
-            {message.text}
-          </div>
+          <Box
+            key={index}
+            sx={{
+              marginBottom: "8px",
+              textAlign: message.sender === "user" ? "right" : "left",
+            }}
+          >
+            <Box
+              sx={{
+                display: "inline-block",
+                p: 1,
+                borderRadius: "12px",
+                bgcolor: message.sender === "user" ? "#e1f5fe" : "#c8e6c9",
+              }}
+            >
+              <Typography variant="body2">{message.text}</Typography>
+            </Box>
+          </Box>
         ))}
-      </div>
-      <div className="input-area">
-        <input
-          type="text"
+      </Box>
+      <Box sx={{ display: "flex", gap: 1 }}>
+        <TextField
+          fullWidth
+          variant="outlined"
           placeholder="Type your message..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
         />
-        <button onClick={handleSendMessage}>Send</button>
-      </div>
-    </div>
+        <Button variant="contained" color="primary" onClick={handleSendMessage}>
+          Send
+        </Button>
+      </Box>
+    </Paper>
   );
 };
 
