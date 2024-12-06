@@ -1,9 +1,10 @@
 .App {
   text-align: center;
+  padding: 1em;
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 30vmin;
   pointer-events: none;
 }
 
@@ -20,12 +21,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(
+    8px + 1.5vmin
+  ); /* Smaller base font size for better scaling */
   color: white;
+  padding: 2rem;
 }
 
 .App-link {
   color: #61dafb;
+  font-size: 1rem;
+  text-decoration: none;
 }
 
 @keyframes App-logo-spin {
@@ -34,5 +40,36 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .App-logo {
+    height: 50vmin;
+  }
+
+  .App-header {
+    font-size: calc(8px + 2vmin);
+    padding: 1rem;
+  }
+
+  .App-link {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .App-logo {
+    height: 70vmin;
+  }
+
+  .App-header {
+    font-size: calc(8px + 3vmin);
+    padding: 0.5rem;
+  }
+
+  .App-link {
+    font-size: 0.8rem;
   }
 }

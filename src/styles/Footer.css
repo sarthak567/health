@@ -2,8 +2,24 @@
   background-color: #4caf50;
   color: white;
   text-align: center;
-  padding: 10px;
+  padding: 10px; /* Increased padding for better visibility on small screens */
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 100%; /* Use 100% to cover the screen width responsively */
+  font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer {
+    font-size: 0.9rem; /* Slightly smaller font size */
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    font-size: 0.8rem; /* Smaller font size for very small screens */
+    padding: 6px;
+  }
 }
