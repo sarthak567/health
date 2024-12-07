@@ -213,6 +213,38 @@
 
 /* Media Queries for Responsiveness */
 
+/* Large Screens (Desktops) */
+@media (min-width: 1200px) {
+  .hero-section {
+    padding: 100px 20px;
+  }
+
+  .hero-section h2 {
+    font-size: 4rem;
+  }
+
+  .cta-buttons {
+    gap: 30px;
+  }
+
+  .cta-btn {
+    padding: 14px 35px;
+    font-size: 1.2rem;
+  }
+
+  .features-container {
+    gap: 40px;
+  }
+
+  .feature-card {
+    width: 300px;
+  }
+
+  .cta-section {
+    padding: 70px 30px;
+  }
+}
+
 /* Tablet Screens and Smaller */
 @media (max-width: 1024px) {
   .home-container {

@@ -1,11 +1,70 @@
 .face-detector {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
   padding: 20px;
 }
 
-video {
+h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.loading,
+.error {
+  font-size: 1.2rem;
+  color: #ff0000;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.camera-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-element {
+  border-radius: 8px;
   width: 100%;
   max-width: 600px;
-  border: 2px solid #ddd;
-  border-radius: 5px;
+  height: auto;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.expression-display {
+  position: absolute;
+  bottom: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 80%;
+  text-align: center;
+}
+
+.expression {
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: #ffcc00;
+}
+
+.error {
+  color: #ff4d4d;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.loading {
+  font-size: 1.5rem;
+  color: #0088cc;
+  font-weight: bold;
 }
